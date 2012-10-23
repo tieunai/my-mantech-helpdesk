@@ -70,6 +70,7 @@ public class AccountModel extends ConnectionDataBase {
             pst.setString(2,UserName);
             pst.setString(3, Password);
             pst.setString(4, Avatar);
+            pst.setInt(5, AccountID);
             int result = pst.executeUpdate();
             disConnection();
             return result;
