@@ -2,94 +2,104 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 import Entities.Department;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  *
- * @author DANG ANH
+ * @author AMENOSA
  */
-public class DepartmentModel extends ConnectionDataBase {
-      public DepartmentModel()
-    {
-        
+public class DepartmentModel extends MyConfig {
+
+    public DepartmentModel() {
     }
-    public Department getDepartment(int DepartmentID)
-    {
+
+    public Iterator getAllDepartment() {
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("Select * from Department where Department_id=?");
-            pst.setInt(1, DepartmentID);
+            openConnect();
+            ArrayList list = new ArrayList();
+            PreparedStatement pst = conn.prepareCall("{call }");
             ResultSet rs = pst.executeQuery();
-            Department department = new Department();
-            if (rs.next())
-            {
-                department.setDepartmentId(rs.getInt("Department_id"));
-                department.setDepartmentName(rs.getString("Department_name"));
+            while (rs.next()) {
+                Department department = new Department();
+                department.setId(rs.getInt("Department_id"));
+                department.setName(rs.getString("Department_name"));
                 department.setDescription(rs.getString("Description"));
+                list.add(department);
             }
-            disConnection();
-            return department;
+            closeConnect();
+            return list.iterator();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return null;
     }
-    
-    //-----Insert Department-----//
-    
-    public int insertDepartment(String DepartmentName,String Description)
-    {
+
+    public int updateDepartment(int id, String name, String description) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("insert into Department(Department_name,[Description]) values (?,?)");
-            pst.setString(1, DepartmentName);
-            pst.setString(2, Description);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setString(1, name);
+            pst.setString(2, description);
+            pst.setInt(3, id);
+            update = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return update;
     }
-    //-----Update Department-----//
-    
-    public int updateDepartment(String DepartmentName,String Description,int DepartmentID)
-    {
+
+    public int insertDepartment(String name, String description) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("update Department set Department_name=?,[Description]=? where Department_id=?");
-            pst.setString(1, DepartmentName);
-            pst.setString(2, Description);
-            pst.setInt(3, DepartmentID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setString(1, name);
+            pst.setString(2, description);
+            update = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return update;
     }
-    
-    //-----Delete Department-----//
-    
-    public int deleteDepartment(int DepartmentID)
-    {
+
+    public int deleteDepartment(int id) {
+        int delete = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("delete from Department where Department_id=?");
-            pst.setInt(1, DepartmentID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{cal }");
+            pst.setInt(1, id);
+            delete = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return delete;
+    }
+
+    public int getPageCount(int pageSize) {
+        int result = 0, count = 0;
+        try {
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("Count");
+            }
+            closeConnect();
+            int temp = count % pageSize;
+            if (temp != 0) {
+                result = count / pageSize + 1;
+            } else {
+                result = count / pageSize;
+            }
+        } catch (SQLException ex) {
+        }
+        return result;
     }
 }

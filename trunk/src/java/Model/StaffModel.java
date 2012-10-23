@@ -2,115 +2,126 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
 
 import Entities.Staff;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  *
- * @author DANG ANH
+ * @author AMENOSA
  */
-public class StaffModel extends ConnectionDataBase{
-    
-    public StaffModel()
-    {
-        
+public class StaffModel extends MyConfig {
+
+    public StaffModel() {
     }
-    
-    public Staff getsStaff(int StaffID)
-    {
+
+    public Iterator getAllStaff() {
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("Select * from Staff where Staff_id=?");
-            pst.setInt(1, StaffID);
+            openConnect();
+            ArrayList list = new ArrayList();
+            PreparedStatement pst = conn.prepareCall("{call }");
             ResultSet rs = pst.executeQuery();
-            Staff staff = new Staff();
-            if(rs.next())
-            {
-                staff.setStaffID(rs.getInt("Staff_id"));
-                staff.setDepartmentId(rs.getInt("Department_id"));
-                staff.setAccountID(rs.getInt("Acc_id"));
-                staff.setStaffName(rs.getString("Staff_name"));
-                staff.setStaffPhone(rs.getString("Staff_phone"));
-                staff.setStaffEmail(rs.getString("Staff_email"));
-                staff.setDateOfBirth(rs.getString("Staff_dob"));
-                staff.setDateJoined(rs.getString("Date_joined"));
-                staff.setDateLeft(rs.getString("Date_left"));
-                staff.setStatus(rs.getString("Status"));
-                
+            while (rs.next()) {
+                Staff staff = new Staff();
+                staff.setId(rs.getInt("Staff_id"));
+                staff.setDepartment_id(rs.getInt("Department_id"));
+                staff.setAccount_id(rs.getInt("Acc_id"));
+                staff.setName(rs.getString("Staff_name"));
+                staff.setPhone(rs.getString("Staff_phone"));
+                staff.setEmail(rs.getString("Staff_email"));
+                staff.setDob(rs.getDate("Staff_dob"));
+                staff.setDate_join(rs.getDate("Date_joined"));
+                staff.setDate_left(rs.getDate("Date_left"));
+                staff.setStatus(rs.getBoolean("Status"));
+                list.add(staff);
             }
-            disConnection();
-            return staff;
+            closeConnect();
+            return list.iterator();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return null;
     }
-    //-----Insert Staff-----//
-    
-    public int insertStaff(int DepartmentID,int AccountID,String StaffName,String StaffPhone,String StaffEmail,String DateOfBirth,String DateJoined,String DateLeft,String Status)
-    {
+
+    public int updateStaff(int id, int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, Date staff_dob, Date date_joined, Date date_left, boolean status) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("insert into Staff(Department_id,Acc_id,Staff_name,Staff_phone,Staff_email,Staff_dob,Date_joined,Date_left,[Status] values (?,?,?,?,?,?,?,?,?))");
-            pst.setInt(1,DepartmentID);
-            pst.setInt(2, AccountID);
-            pst.setString(3, StaffName);
-            pst.setString(4, StaffPhone);
-            pst.setString(5, StaffEmail);
-            pst.setString(6, DateOfBirth);
-            pst.setString(7,DateJoined);
-            pst.setString(8, DateLeft);
-            pst.setString(9, Status);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setInt(1, department_id);
+            pst.setInt(2, acc_id);
+            pst.setString(3, staff_name);
+            pst.setString(4, staff_phone);
+            pst.setString(5, staff_email);
+            pst.setDate(6, staff_dob);
+            pst.setDate(7, date_joined);
+            pst.setDate(8, date_left);
+            pst.setBoolean(9, status);
+            pst.setInt(10, id);
+            update = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return update;
     }
-     //-----update Staff-----//
-    public int updateStaff(int DepartmentID,int AccountID,String StaffName,String StaffPhone,String StaffEmail,String DateOfBirth,String DateJoined,String DateLeft,String Status,int StaffID)
-    {
+
+    public int insertStaff(int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, Date staff_dob, Date date_joined, Date date_left, boolean status) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("update Staff set Department_id=?,Acc_id=?,Staff_name=?,Staff_phone=?,Staff_email=?,Staff_dob=?,Date_joined=?,Date_left=?,Status=? where Staff_id=?");
-            pst.setInt(1,DepartmentID);
-            pst.setInt(2, AccountID);
-            pst.setString(3, StaffName);
-            pst.setString(4, StaffPhone);
-            pst.setString(5, StaffEmail);
-            pst.setString(6, DateOfBirth);
-            pst.setString(7,DateJoined);
-            pst.setString(8, DateLeft);
-            pst.setString(9, Status);
-            pst.setInt(10, StaffID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setInt(1, department_id);
+            pst.setInt(2, acc_id);
+            pst.setString(3, staff_name);
+            pst.setString(4, staff_phone);
+            pst.setString(5, staff_email);
+            pst.setDate(6, staff_dob);
+            pst.setDate(7, date_joined);
+            pst.setDate(8, date_left);
+            pst.setBoolean(9, status);
+            update = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return update;
     }
-    //-----delete Staff-----//
-    
-    public int deleteStaff(int StaffID)
-    {
+
+    public int deletStaff(int id) {
+        int delete = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("delete from Staff where Staff_id=?");
-            pst.setInt(1, StaffID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setInt(1, id);
+            delete = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
-    }  
+        return delete;
+    }
+
+    public int getPageCount(int pageSize) {
+        int result = 0, count = 0;
+        try {
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("Count");
+            }
+            closeConnect();
+            int temp = count % pageSize;
+            if (temp != 0) {
+                result = count / pageSize + 1;
+            } else {
+                result = count / pageSize;
+            }
+        } catch (SQLException ex) {
+        }
+        return result;
+    }
 }
