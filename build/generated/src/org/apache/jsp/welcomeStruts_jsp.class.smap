@@ -1,0 +1,22 @@
+SMAP
+welcomeStruts_jsp.java
+JSP
+*S JSP
+*F
++ 0 welcomeStruts.jsp
+welcomeStruts.jsp
+*L
+1,9:74
+9:103,9
+10,3:112
+12:167,6
+12,3:117
+14:186,4
+14,5:122
+18:203,11
+19,5:214
+23,16:129
+38:237,6
+38,3:147
+40:84,2
+*E
