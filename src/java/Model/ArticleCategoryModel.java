@@ -2,92 +2,104 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
+
 import Entities.ArticleCategory;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  *
- * @author DANG ANH
+ * @author AMENOSA
  */
-public class ArticleCategoryModel extends ConnectionDataBase {
-    
-    public ArticleCategoryModel()
-    {
-        
+public class ArticleCategoryModel extends MyConfig {
+
+    public ArticleCategoryModel() {
     }
-    
-    public ArticleCategory getArticleCategory(int ArticleCategoryID)
-    {
+
+    public Iterator getAllArticle() {
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("Select * from ArticleCategory where Category_id=?");
-            pst.setInt(1, ArticleCategoryID);
+            openConnect();
+            ArrayList list = new ArrayList();
+            PreparedStatement pst = conn.prepareCall("{call }");
             ResultSet rs = pst.executeQuery();
-            ArticleCategory articleCategory = new ArticleCategory();
-            if(rs.next())
-            {
-                articleCategory.setCategoryID(rs.getInt("Category_id"));
-                articleCategory.setCategoryName(rs.getString("Category_name"));
-                articleCategory.setDescription(rs.getString("Description"));
+            while (rs.next()) {
+                ArticleCategory articleCategory = new ArticleCategory();
+                articleCategory.setId(rs.getInt("Category_id"));
+                articleCategory.setName(rs.getString("articleCategory"));
+                articleCategory.setName(rs.getString("Description"));
+                list.add(articleCategory);
             }
-            disConnection();
-            return articleCategory;
+            closeConnect();
+            return list.iterator();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return null;
     }
-    //-----insert ArticleCategory-----//
-    
-    public int insertArticleCategory(String CategotyName,String Description)
-    {
+
+    public int updateArticleCategory(int id, String name, String description) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("insert into ArticleCategory(Category_name,[Description]) values(?,?)");
-            pst.setString(1, CategotyName);
-            pst.setString(2, Description);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setString(1, name);
+            pst.setString(2, description);
+            pst.setInt(3, id);
+            update = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return update;
     }
-    //-----update ArticleCategory-----//
-    public int updateArticleCategory(String CategotyName,String Description,int ArticleCategoryID)
-    {
+
+    public int insertArticleCategory(String name, String description) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("update ArticleCategory set Category_name=?,Description=? where Category_id=?");
-            pst.setString(1, CategotyName);
-            pst.setString(2, Description);
-            pst.setInt(3, ArticleCategoryID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{call }");
+            pst.setString(1, name);
+            pst.setString(2, description);
+            update = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            Logger.getLogger(ArticleCategoryModel.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return -1;
+        return update;
     }
-    //------delete ArticleCategory-----//
-    public int deleteArticleCategory(int CategoryID)
-    {
+
+    public int deleteArticleCategory(int id) {
+        int delete = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareStatement("delete from ArticleCategory where Category_id=?");
-            pst.setInt(1, CategoryID);
-            int result = pst.executeUpdate();
-            return result;
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("{cal }");
+            pst.setInt(1, id);
+            delete = pst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return delete;
+    }
+
+    public int getPageCount(int pageSize) {
+        int result = 0, count = 0;
+        try {
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("Count");
+            }
+            closeConnect();
+            int temp = count % pageSize;
+            if (temp != 0) {
+                result = count / pageSize + 1;
+            } else {
+                result = count / pageSize;
+            }
+        } catch (SQLException ex) {
+        }
+        return result;
     }
 }

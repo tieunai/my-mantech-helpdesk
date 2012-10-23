@@ -2,99 +2,114 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Model;
+
 import Entities.Article;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
- * @author DANG ANH
+ * @author AMENOSA
  */
-public class ArticleModel extends ConnectionDataBase {
-    
-    public ArticleModel()
-    {
-        
+public class ArticleModel extends MyConfig {
+
+    public ArticleModel() {
     }
-    
-    public Article getArticle(int ArticleID)
-    {
+
+    public Iterator getAllArticle() {
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareCall("Select * from Article where Article_id = ?");
-            pst.setInt(1, ArticleID);
-            ResultSet rs = pst.executeQuery();
-            Article article = new Article();
-            if(rs.next())
-            {
-                article.setArticleID(rs.getInt("Article_id"));
-                article.setCategoryID(rs.getInt("Category_id"));
-                article.setArticleTitle(rs.getString("Article_title"));
-                article.setArticleContent(rs.getString("Article_content"));
+            openConnect();
+            ArrayList list = new ArrayList();
+            CallableStatement cst = conn.prepareCall("{call getAllArticle()}");
+            ResultSet rs = cst.executeQuery();
+            while (rs.next()) {
+                Article article = new Article();
+                article.setId(rs.getInt("Article_id"));
+                article.setCategory_id(rs.getInt("Category_id"));
+                article.setTitle(rs.getString("Article_title"));
+                article.setContent(rs.getString("Article_content"));
                 article.setRate(rs.getFloat("Rate"));
-                article.setStatus(rs.getString("Status"));
+                article.setStatus(rs.getBoolean("Status"));
+                list.add(article);
             }
-            disConnection();
-            return article;
+            closeConnect();
+            return list.iterator();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return null;
     }
-    
-    public int insertArticle(int CategoryId,String ArticleTitle,String ArticleContent,String Rate,String Status)
-    {
+
+    public int updateArticle(int id, int category_id, String title, String content, float rate, boolean status) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareCall("inset into Article(Category_id,Article_title,Article_content,Rate,Status) values (?,?,?,?,?)");
-            pst.setInt(1, CategoryId);
-            pst.setString(2, ArticleTitle);
-            pst.setString(3, ArticleContent);
-            pst.setString(4, Rate);
-            pst.setString(5, Status);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            CallableStatement cst = conn.prepareCall("{call update_Article(?,?,?,?,?,?)}");
+            cst.setInt(1, category_id);
+            cst.setString(2, title);
+            cst.setString(3, content);
+            cst.setFloat(4, rate);
+            cst.setBoolean(5, status);
+            cst.setInt(6, id);
+            update = cst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
+        return update;
     }
-    public int updateArticle(int CategoryId,String ArticleTitle,String ArticleContent,String Rate,String Status,int ArticleID)
-    {
+
+    public int insertArticle(int category_id, String title, String content, float rate, boolean status) {
+        int update = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareCall("update Article set Category_id=?,Article_title=?,Article_content=?,Rate=?,Status=? where Article_id=?");
-            pst.setInt(1, CategoryId);
-            pst.setString(2, ArticleTitle);
-            pst.setString(3, ArticleContent);
-            pst.setString(4, Rate);
-            pst.setString(5, Status);
-            pst.setInt(6, ArticleID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            CallableStatement cst = conn.prepareCall("{call insert_Article(?,?,?,?,?)}");
+            cst.setInt(1, category_id);
+            cst.setString(2, title);
+            cst.setString(3, content);
+            cst.setFloat(4, rate);
+            cst.setBoolean(5, status);
+            update = cst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return -1;
-        
+        return update;
     }
-    public int deleteArticle(int ArticleID)
-    {
+
+    public int deleteArticle(int id) {
+        int delete = -1;
         try {
-            Connection();
-            PreparedStatement pst = cn.prepareCall("delete from Article where Article_id=?");
-            pst.setInt(1, ArticleID);
-            int result = pst.executeUpdate();
-            disConnection();
-            return result;
+            openConnect();
+            CallableStatement cst = conn.prepareCall("{call delete_Article(?) }");
+            cst.setInt(1, id);
+            delete = cst.executeUpdate();
+            closeConnect();
         } catch (SQLException ex) {
-           ex.printStackTrace();
         }
-        return -1;
+        return delete;
+    }
+
+    public int getPageCount(int pageSize) {
+        int result = 0, count = 0;
+        try {
+            openConnect();
+            PreparedStatement pst = conn.prepareCall("");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt("Count");
+            }
+            closeConnect();
+            int temp = count % pageSize;
+            if (temp != 0) {
+                result = count / pageSize + 1;
+            } else {
+                result = count / pageSize;
+            }
+        } catch (SQLException ex) {
+        }
+        return result;
     }
 }
