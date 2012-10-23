@@ -8,8 +8,6 @@ import Entities.Article;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -75,6 +73,7 @@ public class ArticleModel extends ConnectionDataBase {
             pst.setString(3, ArticleContent);
             pst.setString(4, Rate);
             pst.setString(5, Status);
+            pst.setInt(6, ArticleID);
             int result = pst.executeUpdate();
             disConnection();
             return result;
