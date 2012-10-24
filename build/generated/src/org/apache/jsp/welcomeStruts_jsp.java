@@ -11,16 +11,10 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
 
   private static java.util.List _jspx_dependants;
 
-  static {
-    _jspx_dependants = new java.util.ArrayList(1);
-    _jspx_dependants.add("/WEB-INF/struts-tiles.tld");
-  }
-
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fhtml_005fhtml_005flocale;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fbean_005fmessage_005fkey_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005fhtml_005fbase_005fnobody;
   private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005flogic_005fnotPresent_005fscope_005fname;
-  private org.apache.jasper.runtime.TagHandlerPool _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody;
 
   private javax.el.ExpressionFactory _el_expressionfactory;
   private org.apache.AnnotationProcessor _jsp_annotationprocessor;
@@ -34,7 +28,6 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
     _005fjspx_005ftagPool_005fbean_005fmessage_005fkey_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005fhtml_005fbase_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _005fjspx_005ftagPool_005flogic_005fnotPresent_005fscope_005fname = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-    _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _el_expressionfactory = _jspxFactory.getJspApplicationContext(getServletConfig().getServletContext()).getExpressionFactory();
     _jsp_annotationprocessor = (org.apache.AnnotationProcessor) getServletConfig().getServletContext().getAttribute(org.apache.AnnotationProcessor.class.getName());
   }
@@ -44,7 +37,6 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
     _005fjspx_005ftagPool_005fbean_005fmessage_005fkey_005fnobody.release();
     _005fjspx_005ftagPool_005fhtml_005fbase_005fnobody.release();
     _005fjspx_005ftagPool_005flogic_005fnotPresent_005fscope_005fname.release();
-    _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -78,7 +70,6 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
       if (_jspx_meth_html_005fhtml_005f0(_jspx_page_context))
         return;
       out.write('\r');
@@ -103,7 +94,7 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
     org.apache.struts.taglib.html.HtmlTag _jspx_th_html_005fhtml_005f0 = (org.apache.struts.taglib.html.HtmlTag) _005fjspx_005ftagPool_005fhtml_005fhtml_005flocale.get(org.apache.struts.taglib.html.HtmlTag.class);
     _jspx_th_html_005fhtml_005f0.setPageContext(_jspx_page_context);
     _jspx_th_html_005fhtml_005f0.setParent(null);
-    // /welcomeStruts.jsp(9,0) name = locale type = null reqTime = true required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
+    // /welcomeStruts.jsp(8,0) name = locale type = null reqTime = true required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
     _jspx_th_html_005fhtml_005f0.setLocale(true);
     int _jspx_eval_html_005fhtml_005f0 = _jspx_th_html_005fhtml_005f0.doStartTag();
     if (_jspx_eval_html_005fhtml_005f0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
@@ -116,6 +107,7 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
           return true;
         out.write("</title>\r\n");
         out.write("        <link rel=\"stylesheet\" href=\"CSS/style.css\">\r\n");
+        out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"mos-css/mos-style.css\">\r\n");
         out.write("        ");
         if (_jspx_meth_html_005fbase_005f0(_jspx_th_html_005fhtml_005f0, _jspx_page_context))
           return true;
@@ -127,24 +119,86 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
         if (_jspx_meth_logic_005fnotPresent_005f0(_jspx_th_html_005fhtml_005f0, _jspx_page_context))
           return true;
         out.write("\r\n");
-        out.write("        <div id=\"stylized\" class=\"login\">\r\n");
-        out.write("            <form id=\"form\" name=\"form\" method=\"post\" action=\"/index.php\">\r\n");
-        out.write("                <h1>Mantech Helpdesk Login</h1>\r\n");
-        out.write("                <p>Access your account</p>\r\n");
-        out.write("                <!-- Name / Email -->\r\n");
-        out.write("                <label for=\"email\">Email</label>\r\n");
-        out.write("                <input type=\"text\" name=\"email\" id=\"email\" />\r\n");
-        out.write("                <!-- Password -->\r\n");
-        out.write("                <label for=\"password\">Password</label>\r\n");
-        out.write("                <input type=\"password\" name=\"password\" id=\"password\" />\r\n");
-        out.write("                <button type=\"submit\">Login</button>\r\n");
-        out.write("                <div class=\"spacer\"></div>\r\n");
-        out.write("            </form>\r\n");
+        out.write("        <div id=\"header\">\r\n");
+        out.write("            <div class=\"inHeader\">\r\n");
+        out.write("                <div class=\"mosAdmin\">\r\n");
+        out.write("                    Hallo, Mas Administrator<br>\r\n");
+        out.write("                    <a href=\"\">Lihat website</a> | <a href=\"\">Help</a> | <a href=\"login.html\">Keluar</a>\r\n");
+        out.write("                </div>\r\n");
+        out.write("                <div class=\"clear\"></div>\r\n");
+        out.write("            </div>\r\n");
         out.write("        </div>\r\n");
-        out.write("        ");
-        if (_jspx_meth_tiles_005finsert_005f0(_jspx_th_html_005fhtml_005f0, _jspx_page_context))
-          return true;
-        out.write("\r\n");
+        out.write("        \r\n");
+        out.write("        <div id=\"wrapper\">\r\n");
+        out.write("            <div id=\"leftBar\">\r\n");
+        out.write("                <ul>\r\n");
+        out.write("                    <!--<li><a href=\"index.html\">Dashboard</a></li>-->\r\n");
+        out.write("                    <li><a href=\"tabel.html\">Complaint</a></li>\r\n");
+        out.write("                    <li><a href=\"form.html\">Staff</a></li>\r\n");
+        out.write("                    <li><a href=\"form.html\">Department</a></li>\r\n");
+        out.write("                    <li><a href=\"form.html\">Solution</a></li>\r\n");
+        out.write("                    <li><a href=\"form.html\">Article</a></li>\r\n");
+        out.write("                    <li><a href=\"form.html\">Statistic</a></li>\r\n");
+        out.write("                </ul>\r\n");
+        out.write("            </div>\r\n");
+        out.write("            <div id=\"rightContent\">\r\n");
+        out.write("                <h3>Statistic</h3>\r\n");
+        out.write("                <div class=\"quoteOfDay\">\r\n");
+        out.write("                    <b>Quote of the day :</b><br>\r\n");
+        out.write("                    <i style=\"color: #5b5b5b;\">\"If you think you can, you really can\"</i>\r\n");
+        out.write("                </div>\r\n");
+        out.write("               \r\n");
+        out.write("                <div class=\"clear\"></div>\r\n");
+        out.write("                \r\n");
+        out.write("                <div id=\"smallRight\"><h3>Complaint</h3>\r\n");
+        out.write("                    <table style=\"border: none;font-size: 12px;color: #5b5b5b;width: 100%;margin: 10px 0 10px 0;\">\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah posting</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah kategori</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah komentar diterbitkan</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah komentar belum diterbitkan</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah foto dalam galeri</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah data buku tamu</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                    </table>\r\n");
+        out.write("                </div>\r\n");
+        out.write("                \r\n");
+        out.write("                <div id=\"smallRight\"><h3>Staff</h3>\r\n");
+        out.write("                    <table style=\"border: none;font-size: 12px;color: #5b5b5b;width: 100%;margin: 10px 0 10px 0;\">\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah posting</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah kategori</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah komentar diterbitkan</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah komentar belum diterbitkan</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah foto dalam galeri</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah data buku tamu</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                    </table>\r\n");
+        out.write("                </div>\r\n");
+        out.write("                <div id=\"smallRight\"><h3>Department</h3>\r\n");
+        out.write("                    <table style=\"border: none;font-size: 12px;color: #5b5b5b;width: 100%;margin: 10px 0 10px 0;\">\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah posting</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah kategori</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah komentar diterbitkan</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah komentar belum diterbitkan</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah foto dalam galeri</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Jumlah data buku tamu</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                    </table>\r\n");
+        out.write("                </div>\r\n");
+        out.write("                <div id=\"smallRight\"><h3>Article</h3>\r\n");
+        out.write("                    \r\n");
+        out.write("                    <table style=\"border: none;font-size: 12px;color: #5b5b5b;width: 100%;margin: 10px 0 10px 0;\">\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Pengunjung online</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Pengunjung hari ini</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Total pengunjung</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Hit hari ini</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                        <tr><td style=\"border: none;padding: 4px;\">Total hit</td><td style=\"border: none;padding: 4px;\"><b>12</b></td></tr>\r\n");
+        out.write("                    </table>\r\n");
+        out.write("                </div>\r\n");
+        out.write("            </div>\r\n");
+        out.write("            <div class=\"clear\"></div>\r\n");
+        out.write("            <div id=\"footer\">\r\n");
+        out.write("                &copy; 2012 MOS css template | <a href=\"#\">Nama Website Anda</a> | design <a href=\"http://arirusmanto.com\" target=\"_blank\">arirusmanto.com</a><br>\r\n");
+        out.write("                redesign <a href=\"#\">Tulis nama anda disini</a> | Silahkan baca <a href=\"lisensi.txt\" target=\"_blank\">Lisensi</a>\r\n");
+        out.write("            </div>\r\n");
+        out.write("        </div>\r\n");
+        out.write("        \r\n");
         out.write("    </body>\r\n");
         int evalDoAfterBody = _jspx_th_html_005fhtml_005f0.doAfterBody();
         if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -167,7 +221,7 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
     org.apache.struts.taglib.bean.MessageTag _jspx_th_bean_005fmessage_005f0 = (org.apache.struts.taglib.bean.MessageTag) _005fjspx_005ftagPool_005fbean_005fmessage_005fkey_005fnobody.get(org.apache.struts.taglib.bean.MessageTag.class);
     _jspx_th_bean_005fmessage_005f0.setPageContext(_jspx_page_context);
     _jspx_th_bean_005fmessage_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_005fhtml_005f0);
-    // /welcomeStruts.jsp(12,15) name = key type = null reqTime = true required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
+    // /welcomeStruts.jsp(11,15) name = key type = null reqTime = true required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
     _jspx_th_bean_005fmessage_005f0.setKey("welcome.title");
     int _jspx_eval_bean_005fmessage_005f0 = _jspx_th_bean_005fmessage_005f0.doStartTag();
     if (_jspx_th_bean_005fmessage_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
@@ -226,25 +280,6 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
       return true;
     }
     _005fjspx_005ftagPool_005flogic_005fnotPresent_005fscope_005fname.reuse(_jspx_th_logic_005fnotPresent_005f0);
-    return false;
-  }
-
-  private boolean _jspx_meth_tiles_005finsert_005f0(javax.servlet.jsp.tagext.JspTag _jspx_th_html_005fhtml_005f0, PageContext _jspx_page_context)
-          throws Throwable {
-    PageContext pageContext = _jspx_page_context;
-    JspWriter out = _jspx_page_context.getOut();
-    //  tiles:insert
-    org.apache.struts.taglib.tiles.InsertTag _jspx_th_tiles_005finsert_005f0 = (org.apache.struts.taglib.tiles.InsertTag) _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody.get(org.apache.struts.taglib.tiles.InsertTag.class);
-    _jspx_th_tiles_005finsert_005f0.setPageContext(_jspx_page_context);
-    _jspx_th_tiles_005finsert_005f0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_005fhtml_005f0);
-    // /welcomeStruts.jsp(38,8) name = attribute type = java.lang.String reqTime = false required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
-    _jspx_th_tiles_005finsert_005f0.setAttribute("footer");
-    int _jspx_eval_tiles_005finsert_005f0 = _jspx_th_tiles_005finsert_005f0.doStartTag();
-    if (_jspx_th_tiles_005finsert_005f0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-      _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody.reuse(_jspx_th_tiles_005finsert_005f0);
-      return true;
-    }
-    _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody.reuse(_jspx_th_tiles_005finsert_005f0);
     return false;
   }
 }
