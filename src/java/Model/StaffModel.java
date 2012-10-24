@@ -29,16 +29,16 @@ public class StaffModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Staff staff = new Staff();
-                staff.setId(rs.getInt("Staff_id"));
-                staff.setDepartment_id(rs.getInt("Department_id"));
-                staff.setAccount_id(rs.getInt("Acc_id"));
-                staff.setName(rs.getString("Staff_name"));
-                staff.setPhone(rs.getString("Staff_phone"));
-                staff.setEmail(rs.getString("Staff_email"));
-                staff.setDob(rs.getDate("Staff_dob"));
-                staff.setDate_join(rs.getDate("Date_joined"));
-                staff.setDate_left(rs.getDate("Date_left"));
-                staff.setStatus(rs.getBoolean("Status"));
+                staff.setStaffID(rs.getInt("Staff_id"));
+                staff.setDepartmentId(rs.getInt("Department_id"));
+                staff.setAccountID(rs.getInt("Acc_id"));
+                staff.setStaffName(rs.getString("Staff_name"));
+                staff.setStaffPhone(rs.getString("Staff_phone"));
+                staff.setStaffEmail(rs.getString("Staff_email"));
+                staff.setDateOfBirth(rs.getString("Staff_dob"));
+                staff.setDateJoined(rs.getString("Date_joined"));
+                staff.setDateLeft(rs.getString("Date_left"));
+                staff.setStatus(rs.getString("Status"));
                 list.add(staff);
             }
             closeConnect();

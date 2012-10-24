@@ -28,8 +28,8 @@ public class AccountRoleModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 AccountRole accountRole = new AccountRole();
-                accountRole.setId(rs.getInt("Acc_role_id"));
-                accountRole.setName(rs.getString("Acc_role_name"));
+                accountRole.setAccountRoleID(rs.getInt("Acc_role_id"));
+                accountRole.setAccountRoleName(rs.getString("Acc_role_name"));
                 list.add(accountRole);
             }
             closeConnect();

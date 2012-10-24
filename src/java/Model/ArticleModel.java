@@ -29,12 +29,12 @@ public class ArticleModel extends MyConfig {
             ResultSet rs = cst.executeQuery();
             while (rs.next()) {
                 Article article = new Article();
-                article.setId(rs.getInt("Article_id"));
-                article.setCategory_id(rs.getInt("Category_id"));
-                article.setTitle(rs.getString("Article_title"));
-                article.setContent(rs.getString("Article_content"));
+                article.setArticleID(rs.getInt("Article_id"));
+                article.setCategoryID(rs.getInt("Category_id"));
+                article.setArticleTitle(rs.getString("Article_title"));
+                article.setArticleContent(rs.getString("Article_content"));
                 article.setRate(rs.getFloat("Rate"));
-                article.setStatus(rs.getBoolean("Status"));
+                article.setStatus(rs.getString("Status"));
                 list.add(article);
             }
             closeConnect();

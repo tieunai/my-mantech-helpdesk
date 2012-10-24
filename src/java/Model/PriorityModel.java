@@ -28,8 +28,8 @@ public class PriorityModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Priority complaintType = new Priority();
-                complaintType.setId(rs.getInt("Priority_id"));
-                complaintType.setName(rs.getString("Priority_name"));
+                complaintType.setPriority_id(rs.getInt("Priority_id"));
+                complaintType.setPriority_name(rs.getString("Priority_name"));
                 list.add(complaintType);
             }
             closeConnect();

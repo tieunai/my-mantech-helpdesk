@@ -28,8 +28,8 @@ public class ComplaintTypeModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 ComplaintType complaintType = new ComplaintType();
-                complaintType.setId(rs.getInt("Complaint_type_id"));
-                complaintType.setName(rs.getString("Complaint_name"));
+                complaintType.setComplaint_type_id(rs.getInt("Complaint_type_id"));
+                complaintType.setComplaint_name(rs.getString("Complaint_name"));
                 list.add(complaintType);
             }
             closeConnect();

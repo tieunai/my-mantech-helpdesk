@@ -28,10 +28,10 @@ public class AccountModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Account account = new Account();
-                account.setId(rs.getInt("Acc_id"));
-                account.setRole_id(rs.getInt("Acc_role_id"));
-                account.setUsername(rs.getString("Username"));
-                account.setPassword(rs.getString("Password"));
+                account.setAccountID(rs.getInt("Acc_id"));
+                account.setAccountRoleID(rs.getInt("Acc_role_id"));
+                account.setUserName(rs.getString("Username"));
+                account.setPasssWord(rs.getString("Password"));
                 account.setAvatar(rs.getString("Avatar"));
                 list.add(account);
             }

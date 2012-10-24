@@ -28,8 +28,8 @@ public class DepartmentModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Department department = new Department();
-                department.setId(rs.getInt("Department_id"));
-                department.setName(rs.getString("Department_name"));
+                department.setDepartmentId(rs.getInt("Department_id"));
+                department.setDepartmentName(rs.getString("Department_name"));
                 department.setDescription(rs.getString("Description"));
                 list.add(department);
             }
