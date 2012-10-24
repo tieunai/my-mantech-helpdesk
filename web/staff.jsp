@@ -67,7 +67,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -79,7 +79,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -91,7 +91,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -103,7 +103,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -115,7 +115,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -127,7 +127,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -139,7 +139,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -151,7 +151,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -163,7 +163,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -175,7 +175,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -187,7 +187,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -199,7 +199,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -211,7 +211,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -223,7 +223,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -235,7 +235,7 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
@@ -247,17 +247,15 @@
                         <td class="data">Data Anda</td>
                         <td class="data" width="75px">
                             <center>
-                                <a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;
+                                <!--<a href="#"><img src="mos-css/img/oke.png"></a>&nbsp;&nbsp;&nbsp;-->
                                 <a href="#"><img src="mos-css/img/detail.png"></a>
                             </center>
                         </td>
                     </tr>
                     
-                    <input type="submit" value="New Staff" onclick="" disabled="false"/>
-                    <input type="button" value="Delete" name="btnDelete" />
-                    
                 </table>
-                
+                <input type="submit" value="New Staff" name="btnNew" class="button"/>
+                <input type="button" value="Delete" name="btnDelete" class="button"/>
             </div>
             <div class="clear"></div>
             
