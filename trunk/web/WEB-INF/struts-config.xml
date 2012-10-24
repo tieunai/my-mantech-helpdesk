@@ -19,7 +19,13 @@
     </global-forwards>
 
     <action-mappings>
+        
+        
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/Home" forward="Home"/>
+        <action path="/Staff" forward="Staff"/>
+        <action path="/NewStaff" forward="NewStaff"/>
+        <action path="/StaffDetail" forward="StaffDetail"/>
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
