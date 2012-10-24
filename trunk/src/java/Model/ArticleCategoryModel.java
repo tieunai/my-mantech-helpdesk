@@ -28,9 +28,9 @@ public class ArticleCategoryModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 ArticleCategory articleCategory = new ArticleCategory();
-                articleCategory.setId(rs.getInt("Category_id"));
-                articleCategory.setName(rs.getString("articleCategory"));
-                articleCategory.setName(rs.getString("Description"));
+                articleCategory.setCategoryID(rs.getInt("Category_id"));
+                articleCategory.setCategoryName(rs.getString("articleCategory"));
+                articleCategory.setDescription(rs.getString("Description"));
                 list.add(articleCategory);
             }
             closeConnect();

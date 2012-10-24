@@ -28,8 +28,8 @@ public class ComplaintStatusModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 ComplaintStatus complaintStatus = new ComplaintStatus();
-                complaintStatus.setId(rs.getInt("Complaint_status_id"));
-                complaintStatus.setName(rs.getString("Complaint_status_name"));
+                complaintStatus.setComplaint_status_id(rs.getInt("Complaint_status_id"));
+                complaintStatus.setComplaint_status_name(rs.getString("Complaint_status_name"));
                 list.add(complaintStatus);
             }
             closeConnect();

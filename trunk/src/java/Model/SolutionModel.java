@@ -29,12 +29,12 @@ public class SolutionModel extends MyConfig {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Solution article = new Solution();
-                article.setId(rs.getInt("Solution_id"));
+                article.setSolution_id(rs.getInt("Solution_id"));
                 article.setComplaint_id(rs.getInt("Complaint_id"));
-                article.setContent(rs.getString("Solution_content"));
-                article.setLodge_date(rs.getDate("Lodge_date"));
-                article.setFix_date(rs.getDate("Fix_date"));
-                article.setClose_date(rs.getDate("Close_date"));
+                article.setSolution_content(rs.getString("Solution_content"));
+                article.setLodge_date(rs.getString("Lodge_date"));
+                article.setFix_date(rs.getString("Fix_date"));
+                article.setClose_date(rs.getString("Close_date"));
                 list.add(article);
             }
             closeConnect();
