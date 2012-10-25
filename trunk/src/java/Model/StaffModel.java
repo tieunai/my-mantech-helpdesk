@@ -25,7 +25,7 @@ public class StaffModel extends MyConfig {
         try {
             openConnect();
             ArrayList list = new ArrayList();
-            PreparedStatement pst = conn.prepareCall("{call }");
+            PreparedStatement pst = conn.prepareCall("{call sp_getStaff}");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Staff staff = new Staff();
@@ -52,7 +52,7 @@ public class StaffModel extends MyConfig {
         int update = -1;
         try {
             openConnect();
-            PreparedStatement pst = conn.prepareCall("{call }");
+            PreparedStatement pst = conn.prepareCall("{call sp_updateStaff}");
             pst.setInt(1, department_id);
             pst.setInt(2, acc_id);
             pst.setString(3, staff_name);
@@ -70,11 +70,11 @@ public class StaffModel extends MyConfig {
         return update;
     }
 
-    public int insertStaff(int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, Date staff_dob, Date date_joined, Date date_left, boolean status) {
+    public int insertStaff(int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, Date staff_dob, Date date_joined, Date date_left, int status) {
         int update = -1;
         try {
             openConnect();
-            PreparedStatement pst = conn.prepareCall("{call }");
+            PreparedStatement pst = conn.prepareCall("{call sp_insertStaff}");
             pst.setInt(1, department_id);
             pst.setInt(2, acc_id);
             pst.setString(3, staff_name);
@@ -83,7 +83,7 @@ public class StaffModel extends MyConfig {
             pst.setDate(6, staff_dob);
             pst.setDate(7, date_joined);
             pst.setDate(8, date_left);
-            pst.setBoolean(9, status);
+            pst.setInt(9, status);
             update = pst.executeUpdate();
             closeConnect();
         } catch (SQLException ex) {
@@ -91,11 +91,11 @@ public class StaffModel extends MyConfig {
         return update;
     }
 
-    public int deletStaff(int id) {
+    public int deleteStaff(int id) {
         int delete = -1;
         try {
             openConnect();
-            PreparedStatement pst = conn.prepareCall("{call }");
+            PreparedStatement pst = conn.prepareCall("{call sp_deleteStaff}");
             pst.setInt(1, id);
             delete = pst.executeUpdate();
             closeConnect();

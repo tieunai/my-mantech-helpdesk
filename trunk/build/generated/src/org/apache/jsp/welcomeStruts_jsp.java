@@ -156,6 +156,7 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
         if (_jspx_meth_tiles_005finsert_005f2(_jspx_th_html_005fhtml_005f0, _jspx_page_context))
           return true;
         out.write("\r\n");
+        out.write("                <div style=\"height: 10px\"></div>\r\n");
         out.write("            </div>\r\n");
         out.write("            <div class=\"clear\"></div>\r\n");
         out.write("            <div id=\"footer\">\r\n");
@@ -281,7 +282,7 @@ public final class welcomeStruts_jsp extends org.apache.jasper.runtime.HttpJspBa
     org.apache.struts.taglib.tiles.InsertTag _jspx_th_tiles_005finsert_005f3 = (org.apache.struts.taglib.tiles.InsertTag) _005fjspx_005ftagPool_005ftiles_005finsert_005fattribute_005fnobody.get(org.apache.struts.taglib.tiles.InsertTag.class);
     _jspx_th_tiles_005finsert_005f3.setPageContext(_jspx_page_context);
     _jspx_th_tiles_005finsert_005f3.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_html_005fhtml_005f0);
-    // /welcomeStruts.jsp(48,16) name = attribute type = java.lang.String reqTime = false required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
+    // /welcomeStruts.jsp(49,16) name = attribute type = java.lang.String reqTime = false required = false fragment = false deferredValue = false deferredMethod = false expectedTypeName = null methodSignature = null 
     _jspx_th_tiles_005finsert_005f3.setAttribute("footer");
     int _jspx_eval_tiles_005finsert_005f3 = _jspx_th_tiles_005finsert_005f3.doStartTag();
     if (_jspx_th_tiles_005finsert_005f3.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
