@@ -28,7 +28,7 @@ public class ConnectionDataBase {
       {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String url = "jdbc:sqlserver://DANGANH-VAIO:1433;databaseName=ShoppingOnline;user=sa;password=danganha";
+            String url = "jdbc:sqlserver://DANGANH-VAIO:1433;databaseName=Mantech;user=sa;password=danganha";
             cn = DriverManager.getConnection(url);
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDataBase.class.getName()).log(Level.SEVERE, null, ex);
