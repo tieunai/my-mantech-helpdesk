@@ -74,7 +74,7 @@ public class StaffModel extends MyConfig {
         //int update = -1;
         try {
             openConnect();
-            PreparedStatement pst = conn.prepareCall("insert into Staff(Department_id,Acc_id,Staff_name,Staff_phone,Staff_email,Staff_dob,Date_joined,Date_left,Status) values (?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pst = conn.prepareStatement("insert into Staff(Department_id,Acc_id,Staff_name,Staff_phone,Staff_email,Staff_dob,Date_joined,Date_left,Status) values (?,?,?,?,?,?,?,?,?)");
             pst.setInt(1, department_id);
             pst.setInt(2, acc_id);
             pst.setString(3, staff_name);
@@ -84,7 +84,6 @@ public class StaffModel extends MyConfig {
             pst.setString(7, date_joined);
             pst.setString(8, date_left);
             pst.setInt(9, status);
-            //
            int result = pst.executeUpdate();
             closeConnect();
             return result;
