@@ -69,7 +69,7 @@ public class StaffModel extends MyConfig {
         }
         return update;
     }
-
+//kdjskdj
     public int insertStaff(int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, Date staff_dob, Date date_joined, Date date_left, int status) {
         int update = -1;
         try {
