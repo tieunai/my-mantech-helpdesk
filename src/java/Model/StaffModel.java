@@ -69,26 +69,29 @@ public class StaffModel extends MyConfig {
         }
         return update;
     }
-//kdjskdj
-    public int insertStaff(int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, Date staff_dob, Date date_joined, Date date_left, int status) {
-        int update = -1;
+
+    public int insertStaff(int department_id, int acc_id, String staff_name, String staff_phone, String staff_email, String staff_dob, String date_joined, String date_left, int status) {
+        //int update = -1;
         try {
             openConnect();
-            PreparedStatement pst = conn.prepareCall("{call sp_insertStaff}");
+            PreparedStatement pst = conn.prepareCall("insert into Staff(Department_id,Acc_id,Staff_name,Staff_phone,Staff_email,Staff_dob,Date_joined,Date_left,Status) values (?,?,?,?,?,?,?,?,?)");
             pst.setInt(1, department_id);
             pst.setInt(2, acc_id);
             pst.setString(3, staff_name);
             pst.setString(4, staff_phone);
             pst.setString(5, staff_email);
-            pst.setDate(6, staff_dob);
-            pst.setDate(7, date_joined);
-            pst.setDate(8, date_left);
+            pst.setString(6, staff_dob);
+            pst.setString(7, date_joined);
+            pst.setString(8, date_left);
             pst.setInt(9, status);
-            update = pst.executeUpdate();
+            //
+           int result = pst.executeUpdate();
             closeConnect();
+            return result;
         } catch (SQLException ex) {
+            ex.printStackTrace();
         }
-        return update;
+        return -1;
     }
 
     public int deleteStaff(int id) {

@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class MyConfig {
 
     protected Connection conn;
-    private String url = "jdbc:sqlserver://amenosa-pc:1433;databaseName=MantechLimited";
+    private String url = "jdbc:sqlserver://localhost:1433;databaseName=Mantech";
     private String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
     public MyConfig() {
